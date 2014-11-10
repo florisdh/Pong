@@ -4,12 +4,14 @@ package GameObjects
 	 * ...
 	 * @author Kramboja | |Koen van der Velden
 	 */
-	public class TopWall extends GameObj
+	public class BotWall extends GameObj
 	{
 		
-		public function TopWall() 
+		public function BotWall() 
 		{
-			super(new Art_Wall_Top());
+			super(new Art_Wall_Bot());
 		}
+		
 	}
+
 }

@@ -6,6 +6,8 @@ package
 	import GameObjects.Ball;
 	import GameObjects.Player;
 	import GameObjects.Enemy;
+	import GameObjects.TopWall;
+	import GameObjects.BotWall;
 	/**
 	 * ...
 	 * @author FDH
@@ -20,6 +22,8 @@ package
 		private var _player:Player;
 		private var _enemy:Enemy;
 		private var _ball:Ball;
+		private var _topWall:TopWall;
+		private var _botWall:BotWall;
 		
 		// State
 		private var _started:Boolean = false;
@@ -35,7 +39,7 @@ package
 			_engine = new Engine(_stage);
 			
 			_player = new Player();
-			_player.y = 30;
+			_player.y = _stage.height / 2;
 			
 			_ball = new Ball();
 			_ball.x = _stage.stageWidth / 2;
@@ -44,9 +48,18 @@ package
 			_enemy = new Enemy(_ball);
 			_enemy.x = _stage.stageWidth;
 			
+			_topWall = new TopWall();
+			_topWall.x = _stage.width / 2;
+			
+			_botWall = new BotWall();
+			_botWall.x = _stage.width / 2;
+			_botWall.y = _stage.height;
+			
 			_engine.addObject(_player);
 			_engine.addObject(_enemy);
 			_engine.addObject(_ball);
+			_engine.addObject(_topWall);
+			_engine.addObject(_botWall);
 		}
 		
 		public function destroy(e:Event = null):void
