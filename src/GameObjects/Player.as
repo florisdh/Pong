@@ -32,11 +32,11 @@ package GameObjects
 		
 		public override function update(e:Event = null):void 
 		{
-			if (UpArrowPressed == true)
+			if (UpArrowPressed == true && this.y > height /2)
 			{
 				y -= Speed;
-			}
-			if	(DownArrowPressed == true)
+			}	
+			if	(DownArrowPressed == true && this.y < 600 - height/2)
 			{
 				y += Speed;
 			}
