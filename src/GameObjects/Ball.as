@@ -10,31 +10,33 @@ package GameObjects
 	{
 		// -- Properties -- //
 		
-		public var Velocity:Vector3D;
+		public var Speed:Number = 10;
 		
 		// -- Vars -- //
+		
+		private var _dir:Vector3D;
 		
 		// -- Construct -- //
 		
 		public function Ball() 
 		{
 			super(new Art_Ball());
-			Velocity = new Vector3D(-3, -1);
+			_dir = new Vector3D(-1, -0.5);
 		}
 		
 		// -- Methods -- //
 		
 		public function bounceHorizontal():void 
 		{
-			Velocity = new Vector3D(-Velocity.x, Velocity.y);
+			_dir = new Vector3D(-_dir.x, _dir.y);
 		}
 		
 		// -- Overrides -- //
 		
 		override public function update(e:Event = null):void 
 		{
-			x += Velocity.x;
-			y += Velocity.y;
+			x += _dir.x * Speed;
+			y += _dir.y * Speed;
 		}
 		
 		override public function onCollide(other:GameObj):void 

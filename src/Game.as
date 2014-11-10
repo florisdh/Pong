@@ -28,7 +28,6 @@ package
 		public function Game(stage:Stage) 
 		{
 			_stage = stage;
-			init();
 		}
 		
 		public function init(e:Event = null):void 
@@ -37,11 +36,12 @@ package
 			
 			_player = new Player();
 			_player.y = 30;
+			
 			_ball = new Ball();
 			_ball.x = _stage.stageWidth / 2;
 			_ball.y = _stage.stageHeight / 2;
-			_enemy = new Enemy(_ball);
 			
+			_enemy = new Enemy(_ball);
 			_enemy.x = _stage.stageWidth;
 			
 			_engine.addObject(_player);
@@ -56,16 +56,22 @@ package
 		
 		public function update(e:Event = null):void 
 		{
+			if (!_started || _paused) return;
+			
 			_engine.update();
 		}
 		
 		public function onKeyDown(e:KeyboardEvent):void 
 		{
+			if (!_started || _paused) return;
+			
 			_player.onKeyDown(e);
 		}
 		
 		public function onKeyUp(e:KeyboardEvent):void 
 		{
+			if (!_started || _paused) return;
+			
 			_player.onKeyUp(e);
 		}
 		
@@ -74,6 +80,7 @@ package
 			if (_started) return;
 			_started = true;
 			
+			init();
 			_engine.start();
 		}
 		
@@ -89,6 +96,7 @@ package
 			if (!_started) return;
 			_started = false;
 			
+			destroy();
 		}
 		
 	}

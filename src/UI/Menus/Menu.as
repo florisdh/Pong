@@ -1,5 +1,6 @@
 package UI.Menus 
 {
+	import flash.display.SimpleButton;
 	import flash.display.Sprite;
 	
 	/**
@@ -15,6 +16,10 @@ package UI.Menus
 			
 		}
 		
+		private function addButton(button:SimpleButton, xPos:int, xPos:int, onClick:String = null)
+		{
+			button.x = x;
+		}
 	}
 
 }

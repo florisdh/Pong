@@ -1,5 +1,6 @@
 package UI.Menus 
 {
+	import flash.display.SimpleButton;
 	/**
 	 * ...
 	 * @author FDH
@@ -10,12 +11,20 @@ package UI.Menus
 		
 		
 		
+		// -- Vars -- //
+		
+		private var _startButton:SimpleButton;
+		
 		// -- Construct -- //
 		
 		public function StartMenu() 
 		{
 			super();
 			
+			_startButton = new Art_StartBTN();
+			_startButton.x = 30;
+			_startButton.y = 100;
+			addChild(_startButton);
 		}
 		
 	}

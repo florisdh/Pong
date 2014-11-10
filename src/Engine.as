@@ -66,6 +66,8 @@ package
 		
 		public function update(e:Event = null):void 
 		{
+			if (!_started) return;
+			
 			// Update all
 			for each (var c:GameObj in _gameObjs)
 			{

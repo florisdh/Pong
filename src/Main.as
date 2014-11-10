@@ -37,9 +37,9 @@ package
 			// entry point
 			
 			_game = new Game(stage);
-			_game.start();
 			
 			showStartMenu();
+			//start();
 			
 			// Event listeners
 			stage.addEventListener(Event.ENTER_FRAME, update);
@@ -69,7 +69,7 @@ package
 			if (_started) return;
 			_started = true;
 			
-			
+			_game.start();
 		}
 		
 		private function pause():void 
@@ -77,6 +77,7 @@ package
 			if (_paused) return;
 			_paused = false;
 			
+			_game.pause();
 		}
 		
 		private function stop():void 
@@ -84,6 +85,7 @@ package
 			if (!_started) return;
 			_started = false;
 			
+			_game.stop();
 		}
 		
 		private function showStartMenu():void 
