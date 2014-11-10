@@ -5,6 +5,7 @@ package
 	import flash.events.KeyboardEvent;
 	import GameObjects.Ball;
 	import GameObjects.Player;
+	import GameObjects.Enemy;
 	/**
 	 * ...
 	 * @author FDH
@@ -17,6 +18,7 @@ package
 		private var _engine:Engine;
 		
 		private var _player:Player;
+		private var _enemy:Enemy;
 		private var _ball:Ball;
 		
 		// State
@@ -36,10 +38,17 @@ package
 			_player = new Player();
 			_player.y = 30;
 			_ball = new Ball();
+<<<<<<< HEAD
 			_ball.x = _stage.stageWidth / 2;
 			_ball.y = _stage.stageHeight / 2;
+=======
+			_enemy = new Enemy(_ball);
+			
+			_enemy.x = _stage.stageWidth;
+>>>>>>> origin/master
 			
 			_engine.addObject(_player);
+			_engine.addObject(_enemy);
 			_engine.addObject(_ball);
 		}
 		
