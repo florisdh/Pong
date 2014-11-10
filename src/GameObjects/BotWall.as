@@ -18,6 +18,10 @@ package GameObjects
 			{
 				other.y--;
 			}
+			if (other is Ball)
+			{
+				(other as Ball).bounceVertical();
+			}
 		}
 	}
 

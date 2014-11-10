@@ -31,6 +31,11 @@ package GameObjects
 			_dir = new Vector3D(-_dir.x, _dir.y);
 		}
 		
+		public function bounceVertical():void 
+		{
+			_dir = new Vector3D(_dir.x, -_dir.y);
+		}
+		
 		// -- Overrides -- //
 		
 		override public function update(e:Event = null):void 

@@ -31,5 +31,15 @@ package GameObjects
 			}
 			y += offsetY;
 		}
+		
+		override public function onCollide(other:GameObj):void 
+		{
+			if (other is Ball)
+			{
+				while (willCollide(other)) other.x--;
+				(other as Ball).bounceHorizontal();
+			}
+		}
+		
 	}
 }
