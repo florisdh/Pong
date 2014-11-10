@@ -11,5 +11,13 @@ package GameObjects
 		{
 			super(new Art_Wall_Top());
 		}
+		
+		override public function onCollide(other:GameObj):void 
+		{
+			while (willCollide(other)) 
+			{
+				other.y++;
+			}
+		}
 	}
 }
