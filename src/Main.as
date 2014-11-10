@@ -64,26 +64,32 @@ package
 		
 		// -- Methods -- //
 		
-		private function start():void 
+		private function start(e:Event = null):void 
 		{
 			if (_started) return;
 			_started = true;
 			
+			hideMenu();
+			
 			_game.start();
 		}
 		
-		private function pause():void 
+		private function pause(e:Event = null):void 
 		{
 			if (_paused) return;
 			_paused = false;
 			
+			hideMenu();
+			
 			_game.pause();
 		}
 		
-		private function stop():void 
+		private function stop(e:Event = null):void 
 		{
 			if (!_started) return;
 			_started = false;
+			
+			hideMenu();
 			
 			_game.stop();
 		}
@@ -93,6 +99,7 @@ package
 			hideMenu();
 			
 			_menu = new StartMenu();
+			_menu.addEventListener(StartMenu.START, start);
 			addChild(_menu);
 		}
 		
@@ -118,6 +125,7 @@ package
 			{
 				removeChild(_menu);
 				_menu = null;
+				stage.focus = null;
 			}
 		}
 	}

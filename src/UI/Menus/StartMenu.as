@@ -9,7 +9,7 @@ package UI.Menus
 	{
 		// -- Events -- //
 		
-		
+		public static const START:String = "Start";
 		
 		// -- Vars -- //
 		
@@ -21,10 +21,7 @@ package UI.Menus
 		{
 			super();
 			
-			_startButton = new Art_StartBTN();
-			_startButton.x = 30;
-			_startButton.y = 100;
-			addChild(_startButton);
+			addButton(new Art_StartBTN(), 30, 100, START);
 		}
 		
 	}
