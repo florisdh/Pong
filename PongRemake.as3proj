@@ -52,7 +52,7 @@
   </includeLibraries>
   <!-- SWC Libraries -->
   <libraryPaths>
-    <!-- example: <element path="..." /> -->
+    <element path="Art\placeHolders.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
