@@ -39,7 +39,7 @@ package
 			_engine = new Engine(_stage);
 			
 			_player = new Player();
-			_player.y = _stage.height / 2;
+			_player.y = _stage.stageHeight / 2;
 			
 			_ball = new Ball();
 			_ball.x = _stage.stageWidth / 2;
@@ -49,11 +49,11 @@ package
 			_enemy.x = _stage.stageWidth;
 			
 			_topWall = new TopWall();
-			_topWall.x = _stage.width / 2;
+			_topWall.x = _stage.stageWidth / 2;
 			
 			_botWall = new BotWall();
-			_botWall.x = _stage.width / 2;
-			_botWall.y = _stage.height;
+			_botWall.x = _stage.stageWidth / 2;
+			_botWall.y = _stage.stageHeight;
 			
 			_engine.addObject(_player);
 			_engine.addObject(_enemy);
