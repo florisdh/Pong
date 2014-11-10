@@ -11,12 +11,13 @@ package GameObjects
 		// -- Properties -- //
 		
 		public var Speed:Number = 10;
-		public var Button_Up:int = 82;
-		public var Button_Down:int = 82;
+		public var Button_Up:int = 38;
+		public var Button_Down:int = 40;
 		
 		// -- Vars -- //
 		
-		private var _dir:int = 0;
+		private var UpArrowPressed:Boolean = false;
+		private var DownArrowPressed:Boolean = false;
 		
 		// -- Construct -- //
 		
@@ -30,17 +31,38 @@ package GameObjects
 		
 		public function update(e:Event = null):void 
 		{
-			
+			if (UpArrowPressed == true)
+			{
+				super.y -= Speed;
+			}
+			if	(DownArrowPressed == true)
+			{
+				super.y += Speed;
+			}
 		}
 		
 		public function onKeyDown(e:KeyboardEvent):void 
 		{
-			
+			if (e.keyCode == Button_Up)
+			{
+				UpArrowPressed = true;
+			}
+			else if (e.keyCode == Button_Down)
+			{
+				DownArrowPressed = true;
+			}
 		}
 		
 		public function onKeyUp(e:KeyboardEvent):void 
 		{
-			
+			if (e.keyCode == Button_Up)
+			{
+				UpArrowPressed = false;
+			}
+			if (e.keyCode == Button_Down)
+			{
+				DownArrowPressed = false;
+			}
 		}
 	}
 
