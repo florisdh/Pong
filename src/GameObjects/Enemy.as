@@ -9,7 +9,7 @@ package GameObjects
 	public class Enemy extends GameObj
 	{
 		private var _bal:Ball;
-		private var _Speed:int = 2;
+		private var _Speed:int = 1;
 		
 		public function Enemy(bal:Ball) 
 		{
@@ -17,10 +17,19 @@ package GameObjects
 			_bal = bal;
 		}
 		
-		public function Update(e:Event = null):void
+		public override function update(e:Event = null):void
 		{
-			y = _bal.y;
+			var offsetY:Number = _bal.y - this.y;
+			
+			if (offsetY < 0)
+			{
+				offsetY = Math.min(offsetY, -_Speed);
+			}
+			else
+			{
+				offsetY = Math.max(offsetY, _Speed);
+			}
+			y += offsetY;
 		}
 	}
-
 }
