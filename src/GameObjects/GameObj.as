@@ -1,5 +1,6 @@
 package GameObjects 
 {
+	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	
@@ -10,10 +11,15 @@ package GameObjects
 	public class GameObj extends Sprite 
 	{
 		
-		public function GameObj() 
+		protected var _art:MovieClip;
+		
+		public function GameObj(art:MovieClip = null) 
 		{
-			super();
-			
+			if (art)
+			{
+				_art = art;
+				addChild(_art);
+			}
 		}
 		
 		public function update(e:Event = null):void 

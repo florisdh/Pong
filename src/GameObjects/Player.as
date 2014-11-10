@@ -23,21 +23,21 @@ package GameObjects
 		
 		public function Player() 
 		{
-			super();
+			super(new Art_Player1());
 			
 		}
 		
 		// -- Methods -- //
 		
-		public function update(e:Event = null):void 
+		public override function update(e:Event = null):void 
 		{
 			if (UpArrowPressed == true)
 			{
-				super.y -= Speed;
+				y -= Speed;
 			}
 			if	(DownArrowPressed == true)
 			{
-				super.y += Speed;
+				y += Speed;
 			}
 		}
 		

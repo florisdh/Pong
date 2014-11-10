@@ -1,5 +1,6 @@
 package GameObjects 
 {
+	import flash.events.Event;
 	/**
 	 * ...
 	 * @author FDH
@@ -9,10 +10,13 @@ package GameObjects
 		
 		public function Ball() 
 		{
-			super();
-			
+			super(new Art_Ball());
 		}
 		
+		override public function update(e:Event = null):void 
+		{
+			x += 20;
+		}
 	}
 
 }

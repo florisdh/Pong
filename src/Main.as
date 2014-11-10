@@ -2,6 +2,7 @@ package
 {
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import flash.events.KeyboardEvent;
 	import UI.Menus.Menu;
 	import UI.Menus.StartMenu;
 	
@@ -35,7 +36,30 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
 			
+			_game = new Game(stage);
+			_game.start();
+			
 			showStartMenu();
+			
+			// Event listeners
+			stage.addEventListener(Event.ENTER_FRAME, update);
+			stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+			stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
+		}
+		
+		private function update(e:Event):void 
+		{
+			_game.update();
+		}
+		
+		private function onKeyDown(e:KeyboardEvent):void 
+		{
+			_game.onKeyDown(e);
+		}
+		
+		private function onKeyUp(e:KeyboardEvent):void 
+		{
+			_game.onKeyUp(e);
 		}
 		
 		// -- Methods -- //

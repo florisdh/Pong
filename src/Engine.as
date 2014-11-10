@@ -25,6 +25,17 @@ package
 		public function Engine(stage:Stage) 
 		{
 			_stage = stage;
+			init();
+		}
+		
+		public function init():void 
+		{
+			_gameObjs = new Vector.<GameObj>();
+		}
+		
+		public function destroy():void 
+		{
+			
 		}
 		
 		// -- Methods -- //
@@ -38,7 +49,7 @@ package
 		public function removeObject(obj:GameObj):void 
 		{
 			var ind:int = _gameObjs.indexOf(obj);
-			removeObjectFromId(obj);
+			removeObjectFromId(ind);
 		}
 		
 		public function removeObjectFromId(ind:int):void 
