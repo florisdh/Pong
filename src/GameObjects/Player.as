@@ -2,6 +2,7 @@ package GameObjects
 {
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
+	import flash.geom.Vector3D;
 	/**
 	 * ...
 	 * @author FDH
@@ -38,6 +39,15 @@ package GameObjects
 			if	(DownArrowPressed == true)
 			{
 				y += Speed;
+			}
+		}
+		
+		override public function onCollide(other:GameObj):void 
+		{
+			if (other is Ball)
+			{
+				while (willCollide(other)) other.x++;
+				(other as Ball).bounceHorizontal();
 			}
 		}
 		

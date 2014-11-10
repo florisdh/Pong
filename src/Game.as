@@ -34,7 +34,10 @@ package
 			_engine = new Engine(_stage);
 			
 			_player = new Player();
+			_player.y = 30;
 			_ball = new Ball();
+			_ball.x = _stage.stageWidth / 2;
+			_ball.y = _stage.stageHeight / 2;
 			
 			_engine.addObject(_player);
 			_engine.addObject(_ball);

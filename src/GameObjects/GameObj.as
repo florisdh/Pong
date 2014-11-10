@@ -11,6 +11,8 @@ package GameObjects
 	public class GameObj extends Sprite 
 	{
 		
+		public var Collide:Boolean = true;
+		
 		protected var _art:MovieClip;
 		
 		public function GameObj(art:MovieClip = null) 
@@ -25,6 +27,15 @@ package GameObjects
 		public function update(e:Event = null):void 
 		{
 			
+		}
+		
+		public function willCollide(other:GameObj):Boolean
+		{
+			return hitTestObject(other);
+		}
+		
+		public function onCollide(other:GameObj):void 
+		{
 		}
 		
 		public function start(e:Event = null):void 

@@ -66,9 +66,45 @@ package
 		
 		public function update(e:Event = null):void 
 		{
+			// Update all
 			for each (var c:GameObj in _gameObjs)
 			{
 				c.update();
+			}
+			
+			// Check for col | I used for instead of foreach becouse some where skipped
+			//var l:int = _gameObjs.length;
+			//for (var cI:int = 0; cI < l; cI++ )
+			//{
+				//var c:GameObj = _gameObjs[cI];
+				//if (!c.Collide) continue;
+				//
+				//for (var oI:int = 0; oI < l; oI++ )
+				//{
+					//// Skip self
+					//if (cI == oI) continue;
+					//
+					//// Skip No colliding parts
+					//var o:GameObj = _gameObjs[oI];
+					//if (!o.Collide) continue;
+					//
+					//// Check for col
+					//if (c.willCollide(o)) c.onCollide(o);
+				//}
+			//}
+			
+			for each (var cObject:GameObj in _gameObjs)
+			{
+				// Check for col
+				if (!c.Collide) continue;
+				
+				for each (var o:GameObj in _gameObjs)
+				{
+					if (c == o || !o.Collide) continue;
+					
+					if (c.willCollide(o)) c.onCollide(o);
+					if (o.willCollide(c)) o.onCollide(c);
+				}
 			}
 		}
 		
