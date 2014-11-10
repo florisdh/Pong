@@ -23,11 +23,11 @@ package GameObjects
 			
 			if (offsetY < 0)
 			{
-				offsetY = Math.min(offsetY, -_Speed);
+				offsetY = Math.max(offsetY, -_Speed);
 			}
 			else
 			{
-				offsetY = Math.max(offsetY, _Speed);
+				offsetY = Math.min(offsetY, _Speed);
 			}
 			y += offsetY;
 		}

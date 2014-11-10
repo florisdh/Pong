@@ -42,6 +42,20 @@ package GameObjects
 		{
 			x += _dir.x * Speed;
 			y += _dir.y * Speed;
+			
+			rotation -= 10;
+			
+			if (x < 0)
+			{
+				x = 400;
+				y = 300;
+			}
+			
+			if (x > 800)
+			{
+				x = 400;
+				y = 300;
+			}
 		}
 		
 		override public function onCollide(other:GameObj):void 
