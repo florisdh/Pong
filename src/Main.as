@@ -48,6 +48,13 @@ package
 			
 		}
 		
+		private function pause():void 
+		{
+			if (_paused) return;
+			_paused = false;
+			
+		}
+		
 		private function stop():void 
 		{
 			if (!_started) return;
