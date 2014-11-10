@@ -49,11 +49,9 @@ package
 			_enemy.x = _stage.stageWidth;
 			
 			_topWall = new TopWall();
-			_topWall.x = _stage.stageWidth / 2;
 			
 			_botWall = new BotWall();
-			_botWall.x = _stage.stageWidth / 2;
-			_botWall.y = _stage.stageHeight;
+			_botWall.y = _stage.stageHeight - _botWall.height;
 			
 			_engine.addObject(_player);
 			_engine.addObject(_enemy);
