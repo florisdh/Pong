@@ -8,9 +8,11 @@ package
 	import GameObjects.Enemy;
 	import GameObjects.TopWall;
 	import GameObjects.BotWall;
+	import GameObjects.Background;
 	/**
 	 * ...
 	 * @author FDH
+	 * @author Kramboja | |Koen van der Velden
 	 */
 	public class Game 
 	{
@@ -24,6 +26,7 @@ package
 		private var _ball:Ball;
 		private var _topWall:TopWall;
 		private var _botWall:BotWall;
+		private var _background:Background;
 		
 		// State
 		private var _started:Boolean = false;
@@ -39,6 +42,7 @@ package
 			_engine = new Engine(_stage);
 			
 			_player = new Player();
+			_player.x = 75;
 			_player.y = _stage.stageHeight / 2;
 			
 			_ball = new Ball();
@@ -46,13 +50,16 @@ package
 			_ball.y = _stage.stageHeight / 2;
 			
 			_enemy = new Enemy(_ball);
-			_enemy.x = _stage.stageWidth;
+			_enemy.x = _stage.stageWidth - 75;
 			
 			_topWall = new TopWall();
 			
 			_botWall = new BotWall();
 			_botWall.y = _stage.stageHeight - _botWall.height;
 			
+			_background = new Background();
+			
+			_engine.addObject(_background);
 			_engine.addObject(_player);
 			_engine.addObject(_enemy);
 			_engine.addObject(_ball);
