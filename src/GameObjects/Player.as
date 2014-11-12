@@ -7,7 +7,7 @@ package GameObjects
 	 * ...
 	 * @author FDH
 	 */
-	public class Player extends GameObj 
+	public class Player extends Paddle 
 	{
 		// -- Properties -- //
 		
@@ -32,22 +32,13 @@ package GameObjects
 		
 		public override function update(e:Event = null):void 
 		{
-			if (UpArrowPressed == true && this.y > height /2)
+			if (UpArrowPressed)
 			{
 				y -= Speed;
-			}	
-			if	(DownArrowPressed == true && this.y < 600 - height/2)
+			}
+			if	(DownArrowPressed)
 			{
 				y += Speed;
-			}
-		}
-		
-		override public function onCollide(other:GameObj):void 
-		{
-			if (other is Ball)
-			{
-				while (willCollide(other)) other.x++;
-				(other as Ball).bounceHorizontal();
 			}
 		}
 		
@@ -69,7 +60,7 @@ package GameObjects
 			{
 				UpArrowPressed = false;
 			}
-			if (e.keyCode == Button_Down)
+			else if (e.keyCode == Button_Down)
 			{
 				DownArrowPressed = false;
 			}

@@ -6,10 +6,10 @@ package GameObjects
 	 * ...
 	 * @author Kramboja | |Koen van der Velden
 	 */
-	public class Enemy extends GameObj
+	public class Enemy extends Paddle
 	{
 		private var _bal:Ball;
-		private var _Speed:int = 1;
+		private var _Speed:int = 15;
 		
 		public function Enemy(bal:Ball) 
 		{
@@ -30,15 +30,6 @@ package GameObjects
 				offsetY = Math.min(offsetY, _Speed);
 			}
 			y += offsetY;
-		}
-		
-		override public function onCollide(other:GameObj):void 
-		{
-			if (other is Ball)
-			{
-				while (willCollide(other)) other.x--;
-				(other as Ball).bounceHorizontal();
-			}
 		}
 		
 	}
