@@ -1,5 +1,6 @@
 package UI.Menus 
 {
+	import flash.display.MovieClip;
 	import flash.display.SimpleButton;
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -18,6 +19,17 @@ package UI.Menus
 		}
 		
 		protected function addButton(button:SimpleButton, xPos:int, yPos:int, onClick:String = null):void
+		{
+			button.x = xPos;
+			button.y = yPos;
+			if (onClick) button.addEventListener(MouseEvent.CLICK, function():void 
+			{
+				dispatchEvent(new Event(onClick));
+			});
+			addChild(button);
+		}
+		
+		protected function addTextureButton(button:MovieClip, xPos:int, yPos:int, onClick:String = null):void
 		{
 			button.x = xPos;
 			button.y = yPos;

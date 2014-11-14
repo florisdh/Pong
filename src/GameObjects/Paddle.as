@@ -30,11 +30,10 @@ package GameObjects
 			}
 			else
 			{
-				trace("hit by: " + other.toString());
 				// Top Collision
 				while (other.hitTestPoint(x, y - height / 2, true)) y++;
 				// Bottom Collision
-				while (other.hitTestPoint(x, y + height / 2, true)) y--;
+				while (other.hitTestPoint(x, y + height / 2 - 1, true)) y--;
 			}
 		}
 		

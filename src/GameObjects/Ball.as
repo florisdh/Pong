@@ -10,7 +10,7 @@ package GameObjects
 	{
 		// -- Properties -- //
 		
-		public var Speed:Number = 15;
+		public var Speed:Number = 12;
 		
 		// -- Vars -- //
 		
@@ -20,7 +20,9 @@ package GameObjects
 		
 		public function Ball() 
 		{
-			super(new Art_Ball());
+			super(new Bal());
+			_art.x = -_art.width / 2;
+			_art.y = -_art.height / 2;
 		}
 		
 		// -- Methods -- //
@@ -83,12 +85,16 @@ package GameObjects
 		{
 			// Top
 			if (other.hitTestPoint(x, y -  height / 2, true)) return 0;
+			//if (other.hitTestPoint(x + width / 2, y, true)) return 0;
 			// Right
 			if (other.hitTestPoint(x + width / 2, y, true)) return 1;
+			//if (other.hitTestPoint(x + width, y + height / 2, true)) return 1;
 			// Bottom
 			if (other.hitTestPoint(x, y +  height / 2, true)) return 2;
+			//if (other.hitTestPoint(x + width / 2, y +  height, true)) return 2;
 			// Left
 			if (other.hitTestPoint(x - width / 2, y, true)) return 3;
+			//if (other.hitTestPoint(x, y + height / 2, true)) return 3;
 			
 			// NO COLLISION
 			return -1;

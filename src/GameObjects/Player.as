@@ -20,12 +20,17 @@ package GameObjects
 		private var UpArrowPressed:Boolean = false;
 		private var DownArrowPressed:Boolean = false;
 		
+		private var _hit:Boolean = false;
+		
 		// -- Construct -- //
 		
 		public function Player() 
 		{
-			super(new Art_Player1());
-			
+			//super(new Art_Player1());
+			super(new SpanjaardAllAnimations());
+			_art.x = -_art.width / 2;
+			_art.y = -_art.height / 2;
+			_art.stop();
 		}
 		
 		// -- Methods -- //
@@ -39,6 +44,24 @@ package GameObjects
 			if	(DownArrowPressed)
 			{
 				y += Speed;
+			}
+			
+			
+			// Anim
+			if (_hit)
+			{
+				if (_art.currentFrame >= 60)
+				{
+					_hit = false;
+					_art.gotoAndPlay(0);
+				}
+			}
+			else
+			{
+				if (_art.currentFrame >= 30)
+				{
+					_art.gotoAndPlay(0);
+				}
 			}
 		}
 		
@@ -64,6 +87,24 @@ package GameObjects
 			{
 				DownArrowPressed = false;
 			}
+		}
+		
+		override public function onCollide(other:GameObj):void 
+		{
+			super.onCollide(other);
+			
+			if (other is Ball)
+			{ // Play hit anim
+				_art.gotoAndPlay(40);
+				_hit = true;
+			}
+		}
+		
+		override public function start(e:Event = null):void 
+		{
+			super.start(e);
+			
+			_art.gotoAndPlay(0);
 		}
 	}
 

@@ -3,6 +3,7 @@ package
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
+	import UI.Menus.DeathMenu;
 	import UI.Menus.Menu;
 	import UI.Menus.StartMenu;
 	
@@ -37,6 +38,7 @@ package
 			// entry point
 			
 			_game = new Game(stage);
+			_game.addEventListener(Game.DEATH, onDeath);
 			
 			showStartMenu();
 			//start();
@@ -45,6 +47,12 @@ package
 			stage.addEventListener(Event.ENTER_FRAME, update);
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 			stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
+		}
+		
+		private function onDeath(e:Event):void 
+		{
+			stop();
+			showEndMenu();
 		}
 		
 		private function update(e:Event):void 
@@ -94,7 +102,7 @@ package
 			_game.stop();
 		}
 		
-		private function showStartMenu():void 
+		private function showStartMenu(e:Event = null):void 
 		{
 			hideMenu();
 			
@@ -103,7 +111,7 @@ package
 			addChild(_menu);
 		}
 		
-		private function showPauseMenu():void 
+		private function showPauseMenu(e:Event = null):void 
 		{
 			hideMenu();
 			
@@ -111,15 +119,16 @@ package
 			addChild(_menu);
 		}
 		
-		private function showEndMenu():void 
+		private function showEndMenu(e:Event = null):void 
 		{
 			hideMenu();
 			
-			_menu = new StartMenu();
+			_menu = new DeathMenu();
+			_menu.addEventListener(DeathMenu.MAINMENU, showStartMenu);
 			addChild(_menu);
 		}
 		
-		private function hideMenu():void 
+		private function hideMenu(e:Event = null):void 
 		{
 			if (_menu)
 			{

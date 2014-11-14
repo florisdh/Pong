@@ -10,10 +10,13 @@ package GameObjects
 	 */
 	public class GameObj extends Sprite 
 	{
+		public static const DESTROY:String = "Destroy";
+		
 		
 		public var Collide:Boolean = true;
 		
 		protected var _art:MovieClip;
+		protected var _destroyed:Boolean = false;
 		
 		public function GameObj(art:MovieClip = null) 
 		{
@@ -36,6 +39,14 @@ package GameObjects
 		
 		public function onCollide(other:GameObj):void 
 		{
+		}
+		
+		public function destroy():void 
+		{
+			if (_destroyed) return;
+			_destroyed = true;
+			
+			dispatchEvent(new Event(DESTROY));
 		}
 		
 		public function start(e:Event = null):void 

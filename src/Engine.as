@@ -44,6 +44,13 @@ package
 		{
 			_gameObjs.push(obj);
 			_stage.addChild(obj);
+			
+			obj.addEventListener(GameObj.DESTROY, onObjectDestroy);
+		}
+		
+		private function onObjectDestroy(e:Event):void 
+		{
+			removeObject(e.target as GameObj);
 		}
 		
 		public function removeObject(obj:GameObj):void 
@@ -91,7 +98,11 @@ package
 					if (!o.Collide) continue;
 					
 					// Check for col
-					if (c.willCollide(o)) c.onCollide(o);
+					if (c.willCollide(o) && o.willCollide(c))
+					{
+						c.onCollide(o);
+						o.onCollide(c);
+					}
 				}
 			}
 			
@@ -127,6 +138,7 @@ package
 			for (var i:int = _gameObjs.length - 1; i >= 0; i-- )
 			{
 				_gameObjs[i].stop();
+				removeObjectFromId(i);
 			}
 		}
 	}

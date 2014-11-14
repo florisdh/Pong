@@ -20,8 +20,9 @@ package UI.Menus
 		public function StartMenu() 
 		{
 			super();
-			
-			addButton(new Art_StartBTN(), 30, 100, START);
+			addChild(new Art_Startscherm());
+			//addButton(new Art_StartBTN(), 30, 100, START);
+			addTextureButton(new Art_Startscherm_Play(), 30, 100, START);
 		}
 		
 	}

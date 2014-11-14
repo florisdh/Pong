@@ -52,7 +52,17 @@
   </includeLibraries>
   <!-- SWC Libraries -->
   <libraryPaths>
-    <element path="Art\placeHolders.swc" />
+    <element path="Art\art_wallanimation.swc" />
+    <element path="Art\Art_Bal.swc" />
+    <element path="Art\art_WallAnimation.swc" />
+    <element path="Art\Art_Wall.swc" />
+    <element path="Art\Art_Background.swc" />
+    <element path="Art\Art_TopGround.swc" />
+    <element path="Art\Spanjaard_All_Animations.swc" />
+    <element path="Art\UI\Art_Startscherm.swc" />
+    <element path="Art\UI\Art_GUI.swc" />
+    <element path="Art\Art_Enemyswc.swc" />
+    <element path="Art\UI\Art_Eindscherm.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
